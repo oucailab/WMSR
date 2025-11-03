@@ -1,0 +1,34 @@
+model: 'wmsr'
+scale: 4
+rgb_range: 255
+colors: 3
+m_wmsr: 8
+c_wmsr: 64
+n_share: 1
+r_expand: 2
+act_type: 'relu'
+window_sizes: [2, 4, 4]
+pretrain:
+
+patch_size: 96
+batch_size: 8
+data_repeat: 20
+data_augment: 1
+
+
+epochs: 200
+lr: 0.0002
+decays: [50,100,150]
+gamma: 0.5
+log_every: 20
+test_every: 10
+log_path: "./ablu"
+log_name:
+
+## hardware specification
+gpu_ids: [0]
+threads: 8
+
+## data specification
+data_path: './datas/SR_datasets'
+eval_sets: ['Hycom', 'Oisst', 'Ghr']
